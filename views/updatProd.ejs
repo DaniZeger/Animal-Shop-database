@@ -1,0 +1,79 @@
+    <%- include('./partials/htmlTags.ejs') %> 
+    
+   <link rel="stylesheet" href="/css/updatProd.css">
+    <title>Update Products</title>
+
+  <body>
+    <% result.forEach((item) => { %>
+    <h1 class="mainTitle">Update product ID No. <%= item.id %></h1>
+          <button id="backBtn">
+        <a href="/homepage">Back to products</a>
+      </button>
+    <div id="wraper">
+      <form action="/update/<%=item.id%>" method="post">
+        <div>
+          <label for="title"></label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="<%= item.title%>"
+          />
+        </div>
+        <div>
+          <label for="animal"></label>
+          <input
+            type="text"
+            name="animal"
+            id="animal"
+            placeholder="<%= item.animal%>"
+          />
+        </div>
+        <div>
+          <label for="category"></label>
+          <input
+            type="text"
+            name="category"
+            id="category"
+            placeholder="<%= item.category%>"
+          />
+        </div>
+        <div>
+          <label for="description"></label>
+          <textarea
+            name="description"
+            id="description"
+            cols="20"
+            rows="5"
+            placeholder="<%= item.description%>"
+          ></textarea>
+        </div>
+        <div>
+          <label for="price"></label>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            placeholder="<%= item.price%>"
+          />
+        </div>
+        <div>
+          <label for="image"></label>
+          <input type="text" name="image" id="image" placeholder="Image" />
+        </div>
+
+        <button>Submit</button>
+      </form>
+
+      <div class="itemDiv">
+        <h2><%= item.title%></h2>
+        <h3><%= item.animal%></h3>
+        <h3><%= item.category%></h3>
+        <p><%= item.description%></p>
+        <h4>$<%= item.price%></h4>
+        <img src="<%= item.image%>" alt="" />
+      </div>
+    </div>
+    <%})%>
+  </body>
+</html>

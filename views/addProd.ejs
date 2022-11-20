@@ -1,0 +1,50 @@
+    <%- include('./partials/htmlTags.ejs') %> 
+
+    <link rel="stylesheet" href="/css/addProd.css" />
+    <title>Shop's Products</title>
+<body>
+        <h1>Add new product to the shop</h1>
+        <button id="backBtn"><a href="/homepage">Back to products</a></button>
+    <form action="/addProduct" method="post">
+      <div>
+        <label for="title"></label>
+        <input type="text" name="title" id="title" placeholder="Title" />
+      </div>
+      <div>
+        <label for="animal"></label>
+        <input type="text" name="animal" id="animal" placeholder="Animal" />
+      </div>
+      <div>
+        <label for="category"></label>
+        <input
+          type="text"
+          name="category"
+          id="category"
+          placeholder="Category"
+        />
+      </div>
+      <div>
+        <label for="description"></label>
+        <textarea
+          name="description"
+          id="description"
+          cols="20"
+          rows="7"
+          placeholder="Description"
+        ></textarea>
+      </div>
+      <div>
+        <label for="price"></label>
+        <input type="text" name="price" id="price" placeholder="Price" />
+      </div>
+      <div>
+        <label for="image"></label>
+        <input type="text" name="image" id="image" placeholder="Image" />
+      </div>
+
+      <button>Submit</button>
+    </form>
+
+
+</body>
+</html>

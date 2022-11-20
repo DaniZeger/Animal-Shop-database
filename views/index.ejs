@@ -1,0 +1,45 @@
+    <%- include('./partials/htmlTags.ejs') %> 
+
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Shop's Products</title>
+
+  <body>
+      
+      <button id="checkoutBtn"><a href="cart/0"> Checkout </a></button>
+      
+     
+      <h1 id="mainTitle">Your Animal Shop</h1>
+      <!-- Admin part - Theoretically it should only appear if(user.admin === TRUE) -->
+      <button id="addProd"><a href="/addProduct">Add new product</a></button>
+      <!----------------->
+
+
+    <div id="productWraper">
+      <% result.forEach((item) => { %>
+      <div class="prodDiv">
+        <!-- Admin part - Theoretically it should only appear if(user.admin === TRUE) -->
+        <div class="id-div">
+          <span style="font-weight: bold"> ID: <%= item.id %> </span>
+          <a href="/update/<%=item.id%>/<%=item.title%> ">&#9998;</a>
+          <a href="/delete/<%=item.id%>">&#128465;</a>
+        </div>
+        <!----------------->
+        <h2><%= item.title%></h2>
+        <h3><%= item.animal%></h3>
+        <h3><%= item.category%></h3>
+        <p><%= item.description%></p>
+        <h4>$<%= item.price%></h4>
+        <form action="/list/0/<%= item.id%>/<%=item.price%>" method="post" id="addToCartForm"> 
+          <button class="plus btn" type="button">+</button>
+          <input type="number" name="total_prod" class="total" id="" placeholder="0">
+          <button class="minus btn" type="button">-</button>
+          <button class="btn" id="addToCartBtn">&#128722;</button>
+        </form>
+        <img src="<%= item.image%>" alt="" />
+      </div>
+      <% }); %>
+    </div>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>

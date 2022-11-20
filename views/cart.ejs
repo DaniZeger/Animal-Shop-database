@@ -1,0 +1,27 @@
+    <%- include('./partials/htmlTags.ejs') %> 
+
+    <link rel="stylesheet" href="/css/cart.css" />
+    <title>Shop's Products</title>
+
+  <body>
+    <button id="backBtn"><a href="/homepage">Back to Homepage</a></button>
+    <h1 id="mainTitle">Hallo <%= result[0].first_name%> <%= result[0].last_name%></h1>
+    <h1 id="subTitle">Your Shopping Cart</h1>
+    <% result.forEach((item) => { %>
+      <div id="productWraper">
+        <div class="imgDiv">
+          <img src="<%= item.image%>" alt=""/>
+        </div>
+      <div class="prodDiv">
+        <h2><%= item.title%></h2>
+        <h3>Quantity: <%= item.prod_quantity%></h3>
+        <h4>Total price: $<%= item.price_sum%></h4>
+      </div>
+    </div>
+      <hr>
+      <% }); %>
+  
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
